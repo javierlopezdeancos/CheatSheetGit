@@ -1,6 +1,3 @@
-
-<img src="../images/feature.png" width="200px"> 
-
 #New Feature
 
 * Develop new features for upcoming releases
