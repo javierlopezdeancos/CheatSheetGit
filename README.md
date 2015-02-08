@@ -12,6 +12,8 @@
 
 ##### Git init
 
+Create a new git repo in our working directory
+
 	$ git init
 	
 ### Link
@@ -21,6 +23,65 @@
 This command takes a remote name and a repository URL
 
     $ git remote add origin https://github.com/try-git/try_git.git
+    
+### Show
+
+##### Checking for changes or status
+
+What are the files changed in working directory?
+
+    $ git status 
+    
+##### History
+
+So we've made a few commits. Now let's browse them to see what we changed.
+
+Fortunately for us, there's git log. Think of Git's log as a journal that remembers all the changes we've committed so far, in the order we committed them.
+
+    $ git log   
+    
+History of changes for file with diffs
+	 
+	$ git log -p <file>
+
+##### What is diferent to the last commit?
+
+Take a look at what is different from our last commit by using the git diff command.
+In this case we want the diff of our most recent commit, which we can refer to using the HEAD pointer.
+    
+    $ git diff HEAD
+    
+##### Diference between id commits
+
+Complete conflicts diff between too commits with too ids
+
+	$ git diff <id-A> <id-B>
+    
+##### To view a merge conflicts
+
+Complete conflicts diff
+
+	$ git diff
+	
+Against base file
+
+	$ git diff --base <file>
+	
+Against your changes
+
+	$ git diff --ours <file>
+	
+Against other changes
+	
+	$ git diff --theirs <file>
+    
+##### Staged Differences
+
+If run git diff with the --staged option you can see the changes you just staged. 
+
+    $ git diff --staged    
+
+### Add, remove files
 
 ##### Adding Files with change status to Stage
 
@@ -36,41 +97,13 @@ You can unstage files by using the git reset command
 
 	$ git diff --staged
     
-##### Remove file to tree directori
+##### Remove file to directorie tree 
 
     $ git rm <file.extension>    
     $ git rm '*.txt'     
     
-** importan! ** this command remove file to the working tree
+** importan! ** this command remove file to the working tree    
 
-##### Committing
-
-To store our staged changes we run the commit command with a message describing what we've changed. 
-
-    $ git commit -m "Commit example file to can push" 
-    
-##### Checking for changes or status
-
-Good job! Git is now tracking our octocat.txt file. Let's run git status again to see where we stand.
-
-    $ git status 
-    
-##### History
-
-So we've made a few commits. Now let's browse them to see what we changed.
-
-Fortunately for us, there's git log. Think of Git's log as a journal that remembers all the changes we've committed so far, in the order we committed them.
-
-    $ git log   
-
-
-##### Push the changes to remote repository
-
-The push command tells Git where to put our commits when we're ready, and boy we're ready.
-
-The name of our remote is origin and the default local branch name is master. The -u tells Git to remember the parameters, so that next time we can simply run git push and Git will know what to do.
-
-    $ git push -u origin <branch>
     
 ##### Update remote repository changes
 
@@ -117,29 +150,66 @@ When you have to merge your changes from the **<branch-B>** into the **<branch-A
 You can list the branch in your repository with.
 
 	$ git branch -d <branche>
+	
+### Update
+
+##### Fetch latest changes from origin
+
+**important!** this does not merge them
+
+	$ git fetch origin <branche>	
+	
+##### Pull latest changes from origin
+
+Does fetch followed by a merge
+
+	$ git pull origin <branche>
+	
+	
+### Publish
+
+##### Committing
+
+To store our staged changes we run the commit command with a message describing what we've changed. 
+
+    $ git commit -m "Commit example file to can push" 
+
+##### Push the changes to remote repository
+
+The push command tells Git where to put our commits when we're ready, and boy we're ready.
+
+The name of our remote is origin and the default local branch name is master. The -u tells Git to remember the parameters, so that next time we can simply run git push and Git will know what to do.
+
+    $ git push -u origin <branch>
+
+##### tagging version
+
+	$ git tag v1.0
  
-### Revert        
+### Revert  
 
 ##### Undo the state of file to last commit state
 
-Files can be changed back to how they were at the last commit by using the command: git checkout -- <target>
+Files can be changed back to how they were at the last commit
 
-	$ git checkout -- <target>
-	$ git checkout -- name.ext    
-    
-##### What is diferent to the last commit?
+- <file> : name of file
+- <id> : id version of a file
 
-Take a look at what is different from our last commit by using the git diff command.
-In this case we want the diff of our most recent commit, which we can refer to using the HEAD pointer.
-    
-    $ git diff HEAD
-    
-##### Staged Differences (cont'd)
+Now the commands posibles are:
+	
+	$ git checkout -- <file>
+	$ git checkout <id>
+	$ git checkout <id> <file>      
+	
+##### Undo the last commit
 
-Good, now go ahead and run git diff with the --staged option to see the changes you just staged. 
+	$ git revert HEAD
+	
+##### Return to the last commited state
 
-    $ git diff --staged    
+** important!: you cannot undo a hard reset **
 
+	$ git reset --hard    
     
 ## Git flow
 
@@ -150,10 +220,15 @@ Good, now go ahead and run git diff with the --staged option to see the changes 
 ## Git Reference
 
 ### Documentation
-[http://rogerdudler.github.io/git-guide/](http://rogerdudler.github.io/git-guide/)
+
+[Pro git book english](http://git-scm.com/book/en/v2)
+
+[Pro git book spanish](http://git-scm.com/book/es/v2)
+
+[A git guide example](http://rogerdudler.github.io/git-guide/)
 
 ### Tutorials
-[http://gitimmersion.com/](http://gitimmersion.com/)
+[git immersion tutorial ](http://gitimmersion.com/)
 
 
 	
