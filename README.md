@@ -231,5 +231,13 @@ Now the commands posibles are:
 [git immersion tutorial ](http://gitimmersion.com/)
 
 
-	
+
+## Humor with git
+
+##### shit it was me
+
+[git blame ](humor/shititwasme.md)
+
+[git rebase ](humor/gitrebaseoriginmaster.md)
+
 	
